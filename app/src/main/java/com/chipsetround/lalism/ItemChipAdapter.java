@@ -1,7 +1,6 @@
 package com.chipsetround.lalism;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +24,7 @@ class ItemChipAdapter extends RecyclerView.Adapter<ItemChipAdapter.Holder> imple
 
     ItemChipAdapter(OnContactClickListener listener) {
         this.listener = listener;
-        Log.e("clickedchip ","click");
+
     }
 
     @Override
