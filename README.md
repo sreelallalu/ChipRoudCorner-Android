@@ -6,18 +6,17 @@ AndroidThis project is help to create chipset (Roud corner rectangle) ,chipset i
         jcenter()
         maven { url "https://jitpack.io" }
 
-/// gradle library
+  ## gradle library
 
- compile 'com.github.sreelallalu:ChipRoudCorner-Android:1.0.0'
+        compile 'com.github.sreelallalu:ChipRoudCorner-Android:1.0.0'
  
  
 
-int layout--
+## activity_layout--
  
  
-<com.chipsetround.lalism.ChipsInputLayout
-
-   android:id="@+id/chips_input"
+       <com.chipsetround.lalism.ChipsInputLayout
+        android:id="@+id/chips_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Start typing for chips... "
@@ -25,40 +24,23 @@ int layout--
         android:textColor="#212121"
         app:chipDeletable="false"
         app:edittextvisible="false"
-
-
->
-
-</com.chipsetround.lalism.ChipsInputLayout>
+       />
 
 
 
-Activity----
 
- chipsInputLayout = (ChipsInputLayout) findViewById(R.id.chips_input);
- 
- ///condition
- 1--- Selected chip set
- 
-  Lis<Items> listchip =new ArrayList();
- 
- 
-  this.chipsInputLayout.setSelectedChipList(listchip);
+  
+  ## Items 
   
   
-  Items 
-  
-  
-   public class Items extends Chip {
+    public class Items extends Chip {
     private int id;
     private String name;
     private String phone;
     private String email;
     private String phoneType;
-
     private Uri avatarUri;
     private Drawable avatarDr;
-
     public ChipItems(int id, String name, String phone, String email, String phoneType, Uri avatarUri, Drawable avatarDr) {
         this.id = id;
         this.name = name;
@@ -150,22 +132,19 @@ Activity----
     public void setEmail(String email) {
         this.email = email;
     }
-}
-
-
-//adapter  ----
-
-
-public class ItemChipAdapter extends RecyclerView.Adapter<ItemChipAdapter.Holder> implements ChipChangedObserver {
-    private final OnContactClickListener listener;
-    private ChipDataSource chipDataSource;
-
-
-    ItemChipAdapter(OnContactClickListener listener) {
-        this.listener = listener;
-        Log.e("clickedchip ","click");
     }
 
+
+ ## chip_adapter 
+
+
+    public class ItemChipAdapter extends RecyclerView.Adapter<ItemChipAdapter.Holder> implements ChipChangedObserver {
+    private final OnContactClickListener listener;
+    private ChipDataSource chipDataSource;
+    ItemChipAdapter(OnContactClickListener listener) {
+        this.listener = listener;
+     
+    }
     @Override
     public int getItemCount() {
         return chipDataSource == null ? 0 : chipDataSource.getFilteredChips().size();
@@ -229,10 +208,10 @@ public class ItemChipAdapter extends RecyclerView.Adapter<ItemChipAdapter.Holder
     }
 }
 
-Main Activity  ---
+## Main Activity  ---
 
-public class MainActivity extends AppCompatActivity implements ItemChipAdapter.OnContactClickListener {
-
+    public class MainActivity extends AppCompatActivity implements ItemChipAdapter.OnContactClickListener 
+    {
     RecyclerView _recycler;
     ItemChipAdapter contactAdapter;
     private ChipsInputLayout chipsInputLayout;
@@ -273,14 +252,10 @@ public class MainActivity extends AppCompatActivity implements ItemChipAdapter.O
     }
 
     private void setChipSet() {
-
-
         List<Chip> listchip = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             listchip.add(new ChipItems(1 + i, "kidukki " + i, "366663" + i, "email.co" + i));
-
         }
-
 
         this.chipsInputLayout.setSelectedChipList(listchip);
 
@@ -301,7 +276,7 @@ public class MainActivity extends AppCompatActivity implements ItemChipAdapter.O
     public void onContactClicked(ChipItems chip) {
 
     }
-}
+    }
 
 
 
