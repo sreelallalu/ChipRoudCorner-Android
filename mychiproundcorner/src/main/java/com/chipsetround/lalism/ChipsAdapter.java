@@ -60,6 +60,7 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         this.editText = chipsInput.getThemedChipsEditText();
         this.editText.setKeyboardListener(this);
             listchip=new ArrayList<>();
+            this.isclickable=chipsInput.getIsEdittextView();
         // Register an observer on the chip data source
         this.chipDataSource.addChipChangedObserver(this);
 
@@ -79,7 +80,6 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 this.editText.setHint(chipOptions.hint);
             }
 
-            // Auto fit the EditText
             autoFitEditText();
         } else if (getItemCount() > 1) { // For chips
             ChipHolder cHolder = (ChipHolder)holder;
@@ -282,8 +282,6 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         ChipHolder(ChipView chipView) {
             super(chipView);
             this.chipView = chipView;
-            isclickable = chipView.iseditTextVisible();
-
         }
     }
 }

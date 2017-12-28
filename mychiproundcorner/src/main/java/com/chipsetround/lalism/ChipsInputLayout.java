@@ -649,12 +649,7 @@ public class ChipsInputLayout extends MaxHeightScrollView
         return chipsEditText;
     }
 
-    /**
-     * Creates a new {@link ChipView} with its theme set from properties defined
-     * in {@link #chipOptions}.
-     *
-     * @return {@link ChipView}
-     */
+
     ChipView getThemedChipView() {
         int padding = Utils.dp(4);
 

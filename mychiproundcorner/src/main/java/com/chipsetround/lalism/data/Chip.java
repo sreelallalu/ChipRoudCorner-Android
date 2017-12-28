@@ -18,7 +18,8 @@ import java.util.Locale;
  * @version 1.0
  */
 public abstract class Chip {
-    /* Allows us to compare text from any language(s) */
+
+
     private static Collator collator;
 
     /* Allows us to compare Chip objects to each other */
