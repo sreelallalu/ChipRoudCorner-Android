@@ -270,8 +270,9 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         InputHolder(EditText editText) {
             super(editText);
             if(!isclickable)
-              editText.setVisibility(View.GONE);
-            else editText.setVisibility(View.VISIBLE);
+            {editText.setVisibility(View.GONE);}
+            else {
+                editText.setVisibility(View.VISIBLE);}
         }
     }
 
