@@ -33,6 +33,10 @@ public class ChipItems extends Chip {
         this.avatarDr = avatarDr;
     }
 
+    public ChipItems(String name) {
+        this.name = name;
+    }
+
     public ChipItems(int id, String name, String phone, String email) {
         this.id = id;
         this.name = name;

@@ -2,6 +2,7 @@ package com.chipsetround.lalism;
 
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -61,6 +62,7 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         this.editText.setKeyboardListener(this);
             listchip=new ArrayList<>();
             this.isclickable=chipsInput.getIsEdittextView();
+        Log.e("is clickable",""+isclickable);
         // Register an observer on the chip data source
         this.chipDataSource.addChipChangedObserver(this);
 
@@ -68,9 +70,8 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return viewType == TYPE_INPUT
-                ? new InputHolder(editText)
-                : new ChipHolder(chipsInput.getThemedChipView());
+
+        return viewType == TYPE_INPUT ? isclickable ?new InputHolder(editText) :new TextViewH(editText) : new ChipHolder(chipsInput.getThemedChipView());
     }
 
     @Override
@@ -269,10 +270,10 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     private static class InputHolder extends RecyclerView.ViewHolder {
         InputHolder(EditText editText) {
             super(editText);
-            if(!isclickable)
+       /*     if(!isclickable)
             {editText.setVisibility(View.GONE);}
             else {
-                editText.setVisibility(View.VISIBLE);}
+                editText.setVisibility(View.VISIBLE);}*/
         }
     }
 
@@ -282,6 +283,13 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         ChipHolder(ChipView chipView) {
             super(chipView);
             this.chipView = chipView;
+        }
+    }
+
+    private class TextViewH extends RecyclerView.ViewHolder {
+        public TextViewH(EditText itemView) {
+            super(itemView);
+            itemView.setVisibility(View.GONE);
         }
     }
 }
