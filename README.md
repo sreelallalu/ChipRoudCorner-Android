@@ -206,7 +206,7 @@ This project is help to create chipset (Roud corner rectangle) ,chipset is nothi
 
         }
     }
-}
+    }
 
 ## Main Activity  ---
 
