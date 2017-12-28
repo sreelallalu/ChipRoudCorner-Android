@@ -33,7 +33,7 @@ This project is help to create chipset (Roud corner rectangle) ,chipset is nothi
   ## Items 
   
   
-    public class Items extends Chip {
+    public class ChipItems extends Chip {
     private int id;
     private String name;
     private String phone;
