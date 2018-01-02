@@ -47,7 +47,7 @@ import java.util.List;
  * @version 1.0
  */
 public class ChipsInputLayout extends MaxHeightScrollView
-        implements FilterableChipsAdapter.OnFilteredChipClickListener {
+        implements FilterableChipsAdapter.OnFilteredChipClickListener{
 
     /* Stores and manages all our chips */
     private ChipDataSource chipDataSource;
@@ -83,7 +83,7 @@ public class ChipsInputLayout extends MaxHeightScrollView
         this.chipOptions = new ChipOptions(c, attrs);
         this.chipDataSource = new ListChipDataSource();
         inflate(c, R.layout.chips_input_view, this);
-        this.chipsAdapter = new ChipsAdapter(this);
+        this.chipsAdapter = new ChipsAdapter(ChipsInputLayout.this);
         this.chipsRecycler = findViewById(R.id.chips_recycler);
         this.chipsRecycler.setLayoutManager(ChipsLayoutManager.newBuilder(c)
                 .setOrientation(ChipsLayoutManager.HORIZONTAL).build());
@@ -105,6 +105,10 @@ public class ChipsInputLayout extends MaxHeightScrollView
 
         // Close the software keyboard
         hideKeyboard();
+    }
+    public ChipsAdapter getChipsAdapter()
+    {
+        return this.chipsAdapter;
     }
 
     /**
@@ -729,6 +733,7 @@ public class ChipsInputLayout extends MaxHeightScrollView
         ((InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE))
                 .hideSoftInputFromWindow(chipsEditText.getWindowToken(), 0);
     }
+
 
 
     /**

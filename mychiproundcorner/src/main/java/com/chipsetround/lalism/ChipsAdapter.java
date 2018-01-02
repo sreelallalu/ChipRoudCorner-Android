@@ -2,7 +2,6 @@ package com.chipsetround.lalism;
 
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -45,28 +44,39 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     private final ChipEditText editText;
     private static List<Chip> listchip=new ArrayList<>();
     public  static SelectedListItems selectedListItems;
+    public static  Chip chipone;
     public boolean clickable=true;
     private static boolean isclickable;
+    private static boolean click;
+    private ChipClickListener chipClickListener;
 
 
     public interface SelectedListItems{
        void selected(List<Chip> selected);
    }
+   public  interface ChipClickListener{
+       void click(Chip selected);
+   }
 
 
-    ChipsAdapter(ChipsInputLayout chipsInput ) {
+
+
+   public ChipsAdapter(ChipsInputLayout chipsInput) {
         this.chipsInput = chipsInput;
         this.chipDataSource = chipsInput.getChipDataSource();
         this.chipOptions = chipsInput.getChipOptions();
         this.editText = chipsInput.getThemedChipsEditText();
         this.editText.setKeyboardListener(this);
-            listchip=new ArrayList<>();
+               listchip=new ArrayList<>();
             this.isclickable=chipsInput.getIsEdittextView();
-        Log.e("is clickable",""+isclickable);
         // Register an observer on the chip data source
         this.chipDataSource.addChipChangedObserver(this);
 
+
+
+
     }
+
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -107,6 +117,8 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
        selectedListItems.selected(listchip);
 
     }
+
+
 
     @Override
     public int getItemCount() {
@@ -230,9 +242,23 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                     }
                 }
             });
-        } else {
+        } else if(chipOptions.isclickable){
+            chipView.setOnChipClicked(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    chipone=chipDataSource.getSelectedChip(position);
+                    chipClickListener.click(chipone);
+                }
+            });
+        }else{
+
             chipView.setOnChipClicked(null);
+
         }
+    }
+    public void setChipadapter(ChipClickListener listener) {
+        this.chipClickListener = listener;
     }
 
     private void setDetailedChipViewPosition(final DetailedChipView detailedChipView, int[] coord) {

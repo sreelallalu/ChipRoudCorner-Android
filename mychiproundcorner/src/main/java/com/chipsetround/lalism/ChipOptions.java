@@ -28,6 +28,7 @@ final class ChipOptions {
     boolean hasAvatarIcon = true;
     boolean showDetailedChips = true;
     boolean chipDeletable = true;
+    boolean isclickable = false;
     Drawable chipDeleteIcon;
 
     /* Properties pertaining to DetailedChipView */
@@ -61,6 +62,7 @@ final class ChipOptions {
 //
         this.edittextvisible = a.getBoolean(R.styleable.ChipsInputLayout_edittextvisible, true);
         this.chipDeletable = a.getBoolean(R.styleable.ChipsInputLayout_chipDeletable, true);
+        this.isclickable = a.getBoolean(R.styleable.ChipsInputLayout_isclickable, false);
         this.chipDeleteIcon = a.getDrawable(R.styleable.ChipsInputLayout_chipDeleteIcon);
 
         // Setup the properties for the DetailedChipView
