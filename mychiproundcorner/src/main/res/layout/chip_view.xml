@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:background="@drawable/ripple_chip_view"
     android:layout_width="wrap_content"
+    android:orientation="horizontal"
     android:layout_height="32dp"
     android:paddingRight="4dp"
     android:paddingEnd="4dp"
@@ -17,9 +18,7 @@
         android:layout_height="32dp"
         android:visibility="visible"
         tools:src="@drawable/avatar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        />
 
     <TextView
         android:id="@+id/label"
@@ -30,21 +29,15 @@
         android:layout_marginEnd="4dp"
         android:textSize="14sp"
         android:textColor="#212121"
-        tools:text="Tyler Suehr"
-        app:layout_constraintLeft_toRightOf="@+id/icon"
-        app:layout_constraintRight_toLeftOf="@+id/button_delete"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        android:text=""/>
 
     <ImageButton
+        android:layout_gravity="center"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:id="@+id/button_delete"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:src="@drawable/ic_cancel_grey_24dp"
         android:visibility="visible"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
-</android.support.constraint.ConstraintLayout>
+       />
+</LinearLayout>
