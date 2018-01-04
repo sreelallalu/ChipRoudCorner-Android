@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.chipsetround.lalism.data.Chip;
@@ -35,7 +36,7 @@ public class DetailedChipView extends FrameLayout {
     private TextView mSubtitleView;
     private ImageButton mButtonDelete;
 
-    private ConstraintLayout mContentLayout;
+    private LinearLayout mContentLayout;
     private CircleImageView mAvatarImageView;
 
     private ColorStateList backgroundColor;
