@@ -81,7 +81,7 @@ class FilterableRecyclerView extends RecyclerView {
         lp.topMargin = coord[1] + chipsInput.getHeight();
 
         // Height of the keyboard
-        lp.bottomMargin = rootView.getHeight() - r.bottom;
+        lp.bottomMargin = rootView.getHeight() - (rootView.getHeight()-70);
         setLayoutParams(lp);
 
         AlphaAnimation anim = new AlphaAnimation(0.0f, 1.0f);
