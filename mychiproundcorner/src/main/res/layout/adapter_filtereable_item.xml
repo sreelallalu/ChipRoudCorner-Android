@@ -14,13 +14,15 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         tools:background="#212121" />
-    <LinearLayout
+    <RelativeLayout
+        android:layout_gravity="center"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+
             android:maxLines="1"
-            android:text="hallloo  worl"
+            android:text="cccccccccc"
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,7 +33,7 @@
 
         <TextView
             android:maxLines="1"
-            android:text="hallloo  worl"
+            android:text=""
             android:id="@+id/subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,7 +41,7 @@
             android:layout_marginStart="16dp"
             android:textColor="#757575"
             android:textSize="14sp" />
-    </LinearLayout>
+    </RelativeLayout>
 
 
 </LinearLayout>
