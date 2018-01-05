@@ -7,8 +7,6 @@ import android.support.annotation.Nullable;
 
 import com.chipsetround.lalism.data.Chip;
 
-import java.util.UUID;
-
 
 /**
  * Copyright © 2017 Tyler Suehr
@@ -24,13 +22,13 @@ import java.util.UUID;
  * @version 1.0
  */
 public class NonFilterableChip extends Chip {
-    private final String id;
+    private final int id;
     private final String title;
 
 
     public NonFilterableChip(String title) {
         setFilterable(false);
-        this.id = UUID.randomUUID().toString();
+        this.id = 0;
         this.title = title;
     }
 
